@@ -1,5 +1,5 @@
 package = "SemParse"
-version = "1.0.0"
+version = "1.0.0-1"
 source = {
     url = "git://github.com/hugeblank/semparse",
     tag = "v1.0.0"
