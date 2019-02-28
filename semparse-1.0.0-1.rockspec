@@ -6,7 +6,7 @@ source = {
 }
 description = {
     summary = "SemVer 2.0.0 parser",
-    detailied = [[
+    detailed = [[
         Parses valid semver 2.0.0 strings.
         Sets a metatable for easy comparison
     ]],
