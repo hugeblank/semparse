@@ -18,5 +18,7 @@ dependencies = {
 }
 build = {
     type = "builtin",
-    semver = "semver.lua"
+    modules = {
+        semver = "semver.lua"
+    }
 }
