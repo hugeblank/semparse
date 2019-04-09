@@ -8,7 +8,7 @@
 local this, meta = {}, {}
 
 meta.__eq = function(in1, in2)
-    local recurse_tag = function(ver1, ver2)
+    local function recurse_tag(ver1, ver2)
         if #ver1 ~= #ver2 then
             return false, 1
         else
@@ -73,6 +73,9 @@ meta.__tostring = function(in1)
 end
 
 this.parse = function(str)
+    if type(str) ~= "string" then
+        return false, 0
+    end
     local out = {}
     local param = ""
     local mode = "release"
