@@ -29,7 +29,7 @@ meta.__eq = function(in1, in2)
     return recurse_tag(in1, in2)
 end
 meta.__lt = function(in1, in2)
-    local recurse_tag = function(ver1, ver2)
+    local function recurse_tag(ver1, ver2)
         if #ver1 < #ver2 then
             return true
         end
