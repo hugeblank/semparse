@@ -98,6 +98,9 @@ this.parse = function(str)
                     mode = "patch"
                     out.tag = {}
                 end
+                if #out > 3 then
+                    return false, 2
+                end
             elseif char == "+" then
                 if #param > 0 then
                     out[#out+1] = tonumber(param)
