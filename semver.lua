@@ -175,7 +175,6 @@ this.parse = function(str)
     elseif out.meta and #out.meta == 0 then
         return false, 10
     end
-    write(textutils.serialise(out))
     return setmetatable(out, meta)
 end
 
