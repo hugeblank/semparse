@@ -35,15 +35,25 @@ meta.__lt = function(in1, in2)
         end
         for i = 1, #ver1 do
             if ver1[i] ~= ver2[i] then
-                if ver1[i] < ver2[i] then
-                    return true
-                else
-                    return false
+                if type(ver1[i]) == "string" and type(ver2[i]) == "string" then -- If they both aren't a string or a number it's on the user
+                    for j = 1, #ver1[i] do
+                        if ver1[i]:sub(j, j):byte() < ver2[i]:sub(j, j):byte() then
+                            return true
+                        else
+                            return false
+                        end
+                    end
+                elseif type(ver1[i]) == "number" and type(ver2[i]) == "number" then
+                    if ver1[i] < ver2[i] then
+                        return true
+                    else
+                        return false
+                    end
                 end
             end
         end
         if ver1.tag and ver2.tag then
-            return recurse_tag(ver1, ver2)
+            return recurse_tag(ver1.tag, ver2.tag)
         elseif ver1.tag and not ver2.tag then
             return true
         elseif (ver2.tag and not ver1.tag) then
@@ -165,6 +175,7 @@ this.parse = function(str)
     elseif out.meta and #out.meta == 0 then
         return false, 10
     end
+    write(textutils.serialise(out))
     return setmetatable(out, meta)
 end
 
