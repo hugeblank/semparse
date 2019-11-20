@@ -37,16 +37,16 @@ meta.__lt = function(in1, in2)
             if ver1[i] ~= ver2[i] then
                 if type(ver1[i]) == "string" and type(ver2[i]) == "string" then -- If they both aren't a string or a number it's on the user
                     for j = 1, #ver1[i] do
-                        if ver1[i]:sub(j, j):byte() < ver2[i]:sub(j, j):byte() then
+                        if ver1[i]:sub(j, j) < ver2[i]:sub(j, j) then
                             return true
-                        else
+                        elseif not (ver1[i]:sub(j, j) == ver2[i]:sub(j, j)) then
                             return false
                         end
                     end
                 elseif type(ver1[i]) == "number" and type(ver2[i]) == "number" then
                     if ver1[i] < ver2[i] then
                         return true
-                    else
+                    elseif not (ver1[i] == ver2[i]) then
                         return false
                     end
                 end
